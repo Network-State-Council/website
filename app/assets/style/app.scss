@@ -1,0 +1,84 @@
+
+@use "./reset.scss";
+@use "./content.scss";
+
+:root {
+  --space: 1em;
+  --space-s: calc(var(--space) / 2);
+  --space-xs: calc(var(--space) / 3);
+  --space-l: calc(var(--space) * 2);
+  --space-xl: calc(var(--space) * 3);
+  --spacing: 4vw;
+  --border-radius: 0.5em;
+
+  --light: #f8f9fa;
+  --dark: #2b1148;
+
+  --yellow: #fbab41;
+  --blue: #6bcdea;
+  --red: #ef4682;
+  --green: #a7cc5e;
+
+
+  --accent: color-mix(in srgb, var(--background), var(--foreground) 5%);
+  --accent-dark: color-mix(in srgb, var(--background), black 10%);
+  --accent-light: color-mix(in srgb, var(--background), white 10%);
+
+  --foreground: var(--dark);
+  --background: var(--light);
+
+  --primary: var(--yellow);
+  --secondary: var(--blue);
+  --tertiary: var(--red);
+  --quaternary: var(--green);
+  --success: var(--green);
+  --info: var(--blue);
+  --warning: var(--yellow)
+  --danger:  var(--red);
+}
+// On Darkmode
+// @media (prefers-color-scheme: dark) {
+//   :root {
+//     --foreground: var(--light);
+//     --background: var(--dark);
+//   }
+// }
+
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  min-height: 100%;
+  width: 100%;
+  background-color: var(--background);
+  color: var(--foreground);
+}
+
+body {
+  font-family: "Inter", sans-serif;
+}
+
+
+a{
+  text-decoration: none; color: inherit;
+}
+
+
+
+.test {
+}
+
+
+h1 {
+  font-size: clamp(2.5em, 6vw, 6em);
+  line-height: 1;
+  font-weight: bold;
+  &:has(strong) {
+    font-weight: normal;
+    strong {
+      font-weight: bold;
+    }
+  }
+}

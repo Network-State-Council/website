@@ -1,0 +1,96 @@
+
+
+h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-weight: bold;
+    &:has(strong) {
+      font-weight: normal;
+      strong {
+        font-weight: bold;
+      }
+    }
+  }
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+blockquote,
+img,
+ul,
+ol,
+table,
+pre,
+.button,
+.highlight,
+code {
+  & + p,
+  & + h1,
+  & + h2,
+  & + h3,
+  & + h4,
+  & + h5,
+  & + h6,
+  & + blockquote,
+  & + img,
+  & + ul,
+  & + ol,
+  & + table,
+  & + pre,
+  & + .button,
+  & + .highlight,
+  & + code {
+    margin-top: 1em;
+  }
+}
+
+
+
+.content-page {
+  padding: var(--spacing);
+  max-width: 960px;
+  margin: auto;
+  line-height: 1.5;
+}
+
+h1 + p {
+  font-size: 1.25em;
+}
+
+ul:not([class]){
+  list-style-type: disc;
+  padding-left: 1em;
+
+  > li + li{
+    margin-top: var(--space);
+  }
+}
+
+blockquote {
+  margin: 0;
+  background-color: #f8f9fa;
+  padding-left: var(--space);
+  border-left: 4px solid var(--primary);
+}
+
+.color{
+  font-size: .75em;
+   display: inline-block; padding: var(--space-xs) var(--space-s);
+   border-radius: var(--border-radius);
+  background-color: color-mix(in srgb, var(--color), var(--background) 80%);
+  align-items: center;
+  display: inline-flex;
+  width: fit-content;
+  gap: var(--space-s);
+  &::before{
+    content: "";
+    display: inline-block; width: 1em; height: 1em; border-radius: 50%;
+    background-color: var(--color);
+  }
+}
