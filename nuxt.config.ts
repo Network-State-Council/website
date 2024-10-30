@@ -4,7 +4,6 @@ import { generateRoutes } from "./app/utils/routes"
 export default defineNuxtConfig({
   compatibilityDate: '2024-04-03',
   devtools: { enabled: true },
-  ssr: false,
   future: {
     compatibilityVersion: 4,
   },
@@ -30,7 +29,13 @@ export default defineNuxtConfig({
       },
     },
   },
-
+  // generate: {
+  //   async ready () {
+  //     const { $content } = require('@nuxt/content')
+  //     const files = await $content().only(['slug']).fetch()
+  //     console.log(files)
+  //   }
+  // },
   generate: {
     routes: generateRoutes()
   },

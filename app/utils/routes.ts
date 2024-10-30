@@ -5,8 +5,18 @@ const formaturlSegment = (str:string):string=>{
   return kebabCase(normalize(str));
 }
 
-export function generateRoutes() {
+
+
+export const generateRoutes = ()=> {
   const routes: string[] = ['/'];
+
+
+  // const { $content } = require('@nuxt/content')
+  // const files = await $content({ deep: true }).only(['path']).fetch()
+
+  // return files.map((file: { path: string }) => file.path === '/index' ? '/' : file.path)
+
+
 
   Object.entries(countryData).forEach(([continent, continentData]) => {
 
