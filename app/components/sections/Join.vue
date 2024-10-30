@@ -68,8 +68,8 @@ const stats = ref({
     top: 50%;
     font-size: 75vw;
     transform: translate(-50%,-50%);
-    color: var(--primary);
-    opacity: .5;
+    color: var(--background);
+    opacity: 1;
   }
 
   &__container{

@@ -32,7 +32,7 @@ const blockClasses = computed(() => {
   flex-direction: column;
   gap: var(--space);
 
-  --card-background: color-mix(in srgb, var(--card-color), var(--background) 60%);
+  --card-background: color-mix(in srgb, var(--card-color), transparent 60%);
 
 
 }

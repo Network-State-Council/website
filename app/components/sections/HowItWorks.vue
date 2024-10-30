@@ -4,7 +4,7 @@
       <div class="content">
         <h2>How It Works</h2>
         <p>A simple four-step process to become a validated network state.</p>
-        <Button color="secondary">Learn More</Button>
+
       </div>
       <div :class="bemm('steps')">
         <div :class="bemm('step')" v-for="step in steps" :key="step.title">
@@ -13,16 +13,22 @@
           <p>{{ step.description }}</p>
         </div>
       </div>
+
+      <ButtonGroup align="center">
+          <Button color="secondary" :size="Sizes.LARGE">Learn More</Button>
+        </ButtonGroup>
     </div>
   </section>
 </template>
 
 <script lang="ts" setup>
 import Button from '@/components/atoms/Button.vue';
+import ButtonGroup from '@/components/atoms/ButtonGroup.vue';
 import Icon from '@/components/atoms/Icon.vue';
 import { useBemm } from 'bemm';
 import { Icons } from 'open-icon';
 import { ref } from 'vue';
+import { Sizes } from '~/data/ui';
 
 const bemm = useBemm('how-it-works');
 
@@ -57,8 +63,8 @@ const steps = ref([
   padding: var(--spacing);
   display: flex;
 
-  h2{
-  font-size: var(--h2-font-size);
+  h2 {
+    font-size: var(--h2-font-size);
   }
 
   .section-content {
@@ -92,8 +98,10 @@ const steps = ref([
     position: relative;
 
 
-    &::before{
-      position: absolute; top: 0; left: 0;
+    &::before {
+      position: absolute;
+      top: 0;
+      left: 0;
       background-color: var(--secondary);
       color: var(--foreground);
       padding: var(--spacing-xs) var(--spacing-s);
@@ -103,7 +111,7 @@ const steps = ref([
       line-height: 2;
       border-radius: 50%;
       transform: translate(-50%, -50%);
-      box-shadow: 4px 4px 0 0 rgba(0,0,0,.125);
+      box-shadow: 4px 4px 0 0 rgba(0, 0, 0, .125);
 
     }
 

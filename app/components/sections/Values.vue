@@ -7,6 +7,7 @@
             <Icon :class="bemm('icon')" :name="Icons.FILE_CHECK2" />
           </div>
           <h2>Validation</h2>
+          <p>Build trust and legitimacy through our community-driven validation process.</p>
           <Button :icon="Icons.ARROW_RIGHT">More information</Button>
         </Card>
 
@@ -15,6 +16,7 @@
             <Icon :class="bemm('icon')" :name="Icons.BOOKCASE" />
           </div>
           <h2>Tools & Resources</h2>
+          <p>Access the infrastructure and resources you need to govern and grow your network state.</p>
           <Button :icon="Icons.ARROW_RIGHT">More information</Button>
         </Card>
 
@@ -23,6 +25,7 @@
             <Icon :class="bemm('icon')" :name="Icons.USER_GROUP" />
           </div>
           <h2>Community</h2>
+          <p>Join a thriving ecosystem of network states sharing knowledge and resources.</p>
           <Button :icon="Icons.ARROW_RIGHT">More information</Button>
         </Card>
       </CardGroup>
@@ -55,22 +58,35 @@ const bemm = useBemm('values');
 
     @keyframes cardIn {
       0% {
-        transform: translateY(50%);
+        transform: translateY(var(--from, 50%));
       }
     }
 
     @keyframes cardOut {
       100% {
-        transform: translateY(0);
+        transform: translateY(calc(var(--from) * -1));
 
       }
     }
 
-    animation: cardIn linear forwards,
-    cardOut linear forwards;
+    animation: cardIn linear forwards,    cardOut linear forwards;
     animation-timeline: view();
-    animation-range: entry 0%,
-    exit;
+    animation-range: entry 50%, exit;
+
+    &:nth-child(1){
+    --from: 50%;
+
+    }
+
+    &:nth-child(2){
+      --from: 75%;
+
+    }
+
+    &:nth-child(3){
+      --from: 100%;
+
+    }
 
     @for $i from 1 through 10 {
       &:nth-child(#{$i}) {
@@ -89,6 +105,8 @@ const bemm = useBemm('values');
     width: fit-content;
     margin: auto;
 margin-top: -3em;
+
+--icon-fill: var(--background);
     .icon {
       font-size: 6em;
     }

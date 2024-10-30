@@ -14,6 +14,7 @@ import { useBemm } from "bemm";
 import type { Icons } from "open-icon";
 import type { PropType } from "vue";
 import Icon from "./Icon.vue";
+import { Sizes } from "~/data/ui";
 const bemm = useBemm('button');
 
 const props = defineProps({
@@ -25,6 +26,10 @@ const props = defineProps({
     type: String,
     default: 'accent'
   },
+  size: {
+    type: String as PropType<Sizes>,
+    default: Sizes.MEDIUM
+  },
   icon: {
     type: String as PropType<Icons>,
     default: ''
@@ -35,10 +40,11 @@ const componentElement = computed(() => {
   return props.element
 })
 
-const buttonClasses = computed(()=>{
+const buttonClasses = computed(() => {
   return [
     bemm(),
-    bemm('',props.color)
+    bemm('', props.color),
+    bemm('', props.size)
   ]
 })
 </script>
@@ -60,7 +66,7 @@ const buttonClasses = computed(()=>{
   align-items: center;
   gap: var(--space-s);
 
-  &__icon{
+  &__icon {
     line-height: 1;
     font-size: 1.5em;
   }
@@ -69,16 +75,40 @@ const buttonClasses = computed(()=>{
     background-color: var(--button-background-color--hover, var(--accent-dark));
   }
 
-  $colors: ('primary','secondary','tertiary','quaternary');
+  $colors: (
+    'primary',
+    'secondary',
+    'tertiary',
+    'quaternary'
+  );
 
-  @each $color in $colors{
-    &--#{$color}{
-     --button-background-color: #{color-mix(in srgb, var(--#{$color}), var(--background) 40%)};
-     --button-text-color: #{color-mix(srgb, var(--#{$color}), var(--foreground) 60%)};
-    --button-background-color--hover: #{color-mix(in srgb, var(--#{$color}), var(--background) 30%)};
-    --button-text-color--hover: #{color-mix(srgb, var(--#{$color}), var(--foreground) 70%)};
-    }
+@each $color in $colors {
+  &--#{$color} {
+    --button-background-color: color-mix(in srgb, var(--#{$color}),
+      var(--background) 40%);
+    --button-text-color: color-mix(srgb, var(--#{$color}),
+      var(--foreground) 60%);
+    --button-background-color--hover: color-mix(in srgb, var(--#{$color}),
+      var(--background) 30%);
+    --button-text-color--hover:color-mix(srgb, var(--#{$color}),
+      var(--foreground) 70%)
   }
+}
+
+&--small {
+  font-size: .8em;
+  padding: var(--space-s);
+}
+
+&--medium {
+  font-size: 1em;
+  padding: var(--space);
+}
+
+&--large {
+  font-size: 1.2em;
+  padding: var(--space) var(--space-l);
+}
 
 }
 </style>

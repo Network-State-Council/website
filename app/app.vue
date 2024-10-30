@@ -14,6 +14,12 @@ const bemm = useBemm('app');
 const route = useRoute();
 const { colorMode, contrastMode, fontSize, scrollDirection, isOnTop } = useUI();
 
+const nuxtApp = useNuxtApp()
+
+nuxtApp.hook("page:finish", () => {
+	 window.scrollTo(0, 0)
+})
+
 watch(
 	() => [colorMode.value, contrastMode.value, fontSize.value],
 	() => {

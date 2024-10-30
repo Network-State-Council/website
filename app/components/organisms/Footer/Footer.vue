@@ -37,6 +37,8 @@ const menu = {
       items: [
         { name: 'Tokenomics', path: '/tokenomics' },
         { name: 'Litepaper', path: '/litepaper' },
+        { name: 'Staking', path: '/staking' },
+        { name: 'Voting', path: '/voting' },
       ]
     },
     {
@@ -56,7 +58,7 @@ const menu = {
 <style lang="scss">
 .footer {
   padding: var(--spacing);
-  border-top: 1px solid var(--accent-dark);
+  // border-top: 1px solid var(--accent-dark);
   display: flex;
   align-items: flex-start;
   gap: var(--space);

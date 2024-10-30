@@ -4,7 +4,7 @@
       <Icon :name="Icons.STAR_L"></Icon>
       <h2>Verified Network States</h2>
       <p>A list of verified network states and where they are located. Click on them to get more info about each.</p>
-      <Button color="secondary">More info</Button>
+
 
       <div :class="bemm('states')">
         <ul :class="bemm('states-list')">
@@ -33,11 +33,13 @@
 </template>
 
 <script lang="ts" setup>
+import ButtonGroup from '@/components/atoms/ButtonGroup.vue';
 
 import Button from '@/components/atoms/Button.vue';
 import Icon from '@/components/atoms/Icon.vue';
 import { useBemm } from 'bemm';
 import { Icons } from 'open-icon';
+import { Colors, Sizes } from '~/data/ui';
 
 const bemm = useBemm('states');
 </script>
