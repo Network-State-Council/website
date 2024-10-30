@@ -18,7 +18,6 @@
 <style lang="scss">
 .intro {
   position: relative;
-  // background-color: var(--secondary);
   padding: var(--spacing) 0;
 
   p {
@@ -28,6 +27,33 @@
   .section-content {
     z-index: 1;
     position: relative;
+  }
+
+  .container {
+    @keyframes headerTitle {
+      100% {
+        transform: translateY(-100%);
+      }
+    }
+
+    @keyframes headerParagraph {
+      100% {
+        transform: translateY(-100%) scale(0.8);
+      }
+    }
+
+
+    h1 {
+      animation: headerTitle ease-in-out both;
+      animation-timeline: scroll();
+      animation-range: 0 50vh;
+    }
+
+    p {
+      animation: headerParagraph ease-in-out both;
+      animation-timeline: scroll();
+      animation-range: 0 50vh;
+    }
   }
 
   .background {
@@ -54,17 +80,17 @@
       }
 
       100% {
-        transform: translateY(0%);
+        transform: translateY(0%)
       }
     }
 
     @keyframes reveal-center {
       0% {
-        transform: translateY(0%);
+        transform: translateY(0%) scale(1) rotate(-10deg);
       }
 
       100% {
-        transform: translateY(-50%);
+        transform: translateY(-50%) scale(1.5) rotate(10deg);
       }
     }
 
@@ -76,5 +102,4 @@
     }
   }
 }
-
 </style>

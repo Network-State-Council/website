@@ -1,7 +1,6 @@
 <template>
   <section :class="bemm()">
     <div class="section-content">
-      <h2>Values</h2>
       <CardGroup :align="'center'">
         <Card>
           <div :class="bemm('card-icon')">
@@ -51,6 +50,36 @@ const bemm = useBemm('values');
 
   backdrop-filter: blur(5px);
 
+  .card {
+
+    @keyframes cardIn {
+      0% {
+        transform: translateY(50%);
+      }
+    }
+
+    @keyframes cardOut {
+      100% {
+        transform: translateY(0);
+
+      }
+    }
+
+    animation: cardIn linear forwards,
+    cardOut linear forwards;
+    animation-timeline: view();
+    animation-range: entry 0%,
+    exit;
+
+    @for $i from 1 through 10 {
+      &:nth-child(#{$i}) {
+        animation-range: entry #{$i * 5%} exit;
+      }
+    }
+
+
+
+  }
 
   &__card-icon {
     background-color: var(--secondary);
@@ -63,6 +92,7 @@ const bemm = useBemm('values');
       font-size: 6em;
     }
   }
+
   h2 {
     text-align: center;
   }

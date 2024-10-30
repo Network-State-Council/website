@@ -24,7 +24,9 @@ const bemm = useBemm('header');
   display: flex;
   align-items: center;
   justify-content: space-between;
-color: var(--foreground);
+  color: var(--foreground);
+  z-index: 10;
+
   &__logo {
     width: 8em;
     flex-shrink: 0;
