@@ -2,23 +2,23 @@
   <section :class="bemm()">
     <div class="section-content">
       <CardGroup :align="'center'">
-        <Card>
+        <Card :color="Colors.PRIMARY">
           <div :class="bemm('card-icon')">
-            <Icon :class="bemm('icon')" :name="Icons.SHIELD" />
+            <Icon :class="bemm('icon')" :name="Icons.FILE_CHECK2" />
           </div>
           <h2>Validation</h2>
           <Button :icon="Icons.ARROW_RIGHT">More information</Button>
         </Card>
 
-        <Card>
+        <Card :color="Colors.SECONDARY">
           <div :class="bemm('card-icon')">
-            <Icon :class="bemm('icon')" :name="Icons.TOY_BLOCKS" />
+            <Icon :class="bemm('icon')" :name="Icons.BOOKCASE" />
           </div>
           <h2>Tools & Resources</h2>
           <Button :icon="Icons.ARROW_RIGHT">More information</Button>
         </Card>
 
-        <Card>
+        <Card :color="Colors.TERTIARY">
           <div :class="bemm('card-icon')">
             <Icon :class="bemm('icon')" :name="Icons.USER_GROUP" />
           </div>
@@ -38,6 +38,7 @@ import Card from '@/components/molecules/Card.vue';
 import CardGroup from '@/components/molecules/CardGroup.vue';
 import { useBemm } from 'bemm';
 import { Icons } from 'open-icon';
+import { Colors } from '~/data/ui';
 
 const bemm = useBemm('values');
 </script>
@@ -82,12 +83,12 @@ const bemm = useBemm('values');
   }
 
   &__card-icon {
-    background-color: var(--secondary);
+    background-color: var(--card-color);
     border-radius: var(--border-radius);
     padding: var(--space);
     width: fit-content;
     margin: auto;
-
+margin-top: -3em;
     .icon {
       font-size: 6em;
     }

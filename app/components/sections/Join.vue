@@ -1,27 +1,35 @@
 <template>
   <section :class="bemm()">
-    <div class="section-content">
-      <Icon :name="Icons.USER_GROUP"></Icon>
+
+    <Icon  :class="bemm('section-icon')" :name="Icons.USER_GROUP"></Icon>
+
+    <div :class="[bemm('container'),'section-content']">
       <div class="content">
         <h2>Join the Movement</h2>
-      <p>Be part of the future of digital governance. Start your journey today.</p>
-      <ButtonGroup>
-        <Button color="primary">Validate Your Network State</Button>
-        <Button color="secondary">Join the Council</Button>
-      </ButtonGroup>
+        <p>Be part of the future of digital governance. Start your journey today.</p>
+        <ButtonGroup>
+          <Button color="primary">Validate Your Network State</Button>
+          <Button color="secondary">Join the Council</Button>
+        </ButtonGroup>
 
       </div>
       <div :class="bemm('stats')">
         <div :class="bemm('stat')">
-          <span :class="bemm('number')">{{ stats.states }}</span>
+          <span :class="bemm('number')">
+            <AtomsCountUp  :reset="true" :target-number="stats.states" :duration="2000"></AtomsCountUp>
+          </span>
           <span :class="bemm('label')">Network States</span>
         </div>
         <div :class="bemm('stat')">
-          <span :class="bemm('number')">{{ stats.members }}</span>
+          <span :class="bemm('number')">
+            <AtomsCountUp :reset="true" :target-number="stats.members" :duration="2000"></AtomsCountUp>
+          </span>
           <span :class="bemm('label')">Council Members</span>
         </div>
         <div :class="bemm('stat')">
-          <span :class="bemm('number')">{{ stats.countries }}</span>
+          <span :class="bemm('number')">
+            <AtomsCountUp :reset="true" :target-number="stats.countries" :duration="2000"></AtomsCountUp>
+          </span>
           <span :class="bemm('label')">Countries</span>
         </div>
       </div>
@@ -52,15 +60,31 @@ const stats = ref({
   color: var(--foreground);
   padding: var(--spacing);
   display: flex;
+  position: relative;
+  overflow: hidden;
 
+  &__section-icon{
+    position: absolute; left: 0;
+    top: 50%;
+    font-size: 75vw;
+    transform: translate(-50%,-50%);
+    color: var(--primary);
+    opacity: .5;
+  }
 
-  h2{
+  &__container{
+    z-index: 20;
+
+  }
+
+  h2 {
     font-size: var(--h2-font-size);
   }
 
   .section-content {
     text-align: center;
-    display: flex; flex-direction: column;
+    display: flex;
+    flex-direction: column;
     gap: var(--spacing);
   }
 
@@ -79,15 +103,16 @@ const stats = ref({
     background-color: var(--background);
     border-radius: var(--border-radius);
   }
-    &__number {
-      font-size: 2em;
-      font-weight: bold;
-      margin-bottom: var(--spacing-xs);
-    }
 
-    &__label {
-      color: var(--text-light-secondary);
-    }
+  &__number {
+    font-size: 2em;
+    font-weight: bold;
+    margin-bottom: var(--spacing-xs);
+  }
+
+  &__label {
+    color: var(--text-light-secondary);
+  }
 
 }
 </style>

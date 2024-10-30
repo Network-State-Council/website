@@ -15,10 +15,8 @@
     "bemm": "^1.1.1",
     "nuxt": "^3.13.2",
     "open-icon": "^1.0.2",
+    "sass": "1.79",
     "vue": "latest",
     "vue-router": "latest"
-  },
-  "devDependencies": {
-    "sass": "^1.80.4"
   }
 }

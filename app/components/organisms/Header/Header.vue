@@ -2,17 +2,24 @@
   <header :class="bemm()">
 
     <NuxtLink :to="{ name: 'index' }" :class="bemm('logo')">
-      <Logo />
+      <Logo :inline="isMobile" />
     </NuxtLink>
-    <Navigation />
+    <NavigationTrigger v-if="isMobile" />
+    <Navigation v-if="!isMobile" />
+    <MobileNavigation v-if="isMobile" />
   </header>
 </template>
 
 <script lang="ts" setup>
 import { useBemm } from "bemm";
+import NavigationTrigger from "@/components/organisms/Navigation/NavigationTrigger.vue";
 import Navigation from '@/components/organisms/Navigation/Navigation.vue';
 import Logo from "@/components/atoms/Logo.vue";
+import MobileNavigation from "../Navigation/MobileNavigation.vue";
 const bemm = useBemm('header');
+
+import { useUI } from "~/composables/useUI";
+const { isMobile } = useUI();
 </script>
 
 
@@ -27,6 +34,10 @@ const bemm = useBemm('header');
   color: var(--foreground);
   z-index: 10;
 
+  @media (max-width: 768px) {
+    backdrop-filter: blur(10px);
+    background-color: color-mix(in srgb, var(--background), transparent 50%);
+  }
   &__logo {
     width: 8em;
     flex-shrink: 0;

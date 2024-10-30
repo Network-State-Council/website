@@ -1,6 +1,6 @@
 
-@use "./reset.scss";
-@use "./content.scss";
+@use "reset";
+@use "content";
 
 :root {
   --space: 1em;
@@ -14,9 +14,15 @@
   --light: #ffffff;
   --dark: #2b1148;
 
-  --yellow: #fbab41;
-  --blue: #6bcdea;
-  --red: #ef4682;
+
+--accent-light: #7779ba;
+--accent-dark: #44499e;
+
+--accent: var(--accent-dark);
+
+  --yellow: #eea320;
+  --blue: #64c6bd;
+  --red: #e83e25;
   --green: #a7cc5e;
 
 
@@ -44,6 +50,7 @@
 //   :root {
 //     --foreground: var(--light);
 //     --background: var(--dark);
+//      --accent: var(--accent-dark);
 //   }
 // }
 

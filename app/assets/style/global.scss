@@ -1,7 +1,31 @@
-@mixin h1{
+@use "sass:map";
+
+@mixin h1 {
   font-size: clamp(3em, 8vw, 8em);
 }
 
-@mixin h2{
+@mixin h2 {
   font-size: clamp(2.5em, 6vw, 6em);
 }
+
+$colors: (
+  "primary": var(--primary),
+  "secondary": var(--secondary),
+  "tertiary": var(--tertiary),
+  "accent": var(--accent),
+  "background": var(--background),
+  "foreground": var(--foreground),
+  "success": var(--success),
+  "info": var(--info),
+  "warning": var(--warning),
+  "danger": var(--danger),
+);
+
+$base-colors: (
+  "red": var(--red),
+  "green": var(--green),
+  "yellow": var(--yellow),
+  "blue": var(--blue),
+);
+
+$all-colors: map.merge($colors, $base-colors);

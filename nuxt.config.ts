@@ -9,19 +9,19 @@ export default defineNuxtConfig({
   },
   ssr: false,
   css: ['~/assets/style/app.scss'],
-  vite: {
-    build: {
-      target: 'esnext',
-    },
-    css: {
-      preprocessorOptions: {
-        scss: {
-          api: 'modern',
-          additionalData: `\n@use "~/assets/style/global.scss";`,
-        },
-      },
-    },
-  },
+	vite: {
+		build: {
+			target: 'esnext',
+		},
+		css: {
+			preprocessorOptions: {
+				scss: {
+					api: 'modern',
+					additionalData: `\n@use "~/assets/style/global";`,
+				},
+			},
+		},
+	},
 
   nitro: {
     esbuild: {
