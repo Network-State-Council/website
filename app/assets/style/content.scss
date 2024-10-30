@@ -28,6 +28,7 @@ ol,
 table,
 pre,
 .button,
+.button-group,
 .highlight,
 code {
   & + p,
@@ -44,6 +45,7 @@ code {
   & + table,
   & + pre,
   & + .button,
+  & + .button-group,
   & + .highlight,
   & + code {
     margin-top: 1em;
@@ -93,4 +95,17 @@ blockquote {
     display: inline-block; width: 1em; height: 1em; border-radius: 50%;
     background-color: var(--color);
   }
+}
+
+.section-content > h2{
+  font-size: clamp(1.5em,3vw, 3em);
+}
+
+
+.section-content,
+.content-page {
+  padding: var(--spacing);
+  max-width: 960px;
+  margin: auto;
+  line-height: 1.5;
 }

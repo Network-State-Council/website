@@ -1,5 +1,7 @@
-@mixin test(){
-  .test {
-    color: red;
-  }
+@mixin h1{
+  font-size: clamp(3em, 8vw, 8em);
+}
+
+@mixin h2{
+  font-size: clamp(2.5em, 6vw, 6em);
 }

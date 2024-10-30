@@ -72,6 +72,9 @@ const menu = {
     display: flex;
     gap: var(--spacing);
     flex: 1;
+     @media screen and (max-width: 768px) {
+      flex-direction: column;
+    }
   }
 
   &__list {
@@ -81,7 +84,11 @@ const menu = {
     align-items: flex-start;
     padding: 0;
     margin: 0;
-height: fit-content;
+    height: fit-content;
+
+
+
+
   }
 
   &__label {
@@ -94,8 +101,8 @@ height: fit-content;
   }
 
   &__link {
-display: block;
-   }
+    display: block;
+  }
 
 
 
